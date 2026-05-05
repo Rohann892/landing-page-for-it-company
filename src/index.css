@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@theme {
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-secondary: #8b5cf6;
+  --color-accent: #0ea5e9;
+  --color-bg-light: #ffffff;
+  --color-bg-soft: #f8fafc;
+  --color-text-main: #0f172a;
+  --color-text-muted: #475569;
+  --font-outfit: "Outfit", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg-light text-text-main font-inter antialiased overflow-x-hidden;
+  }
+  h1, h2, h3, h4 {
+    @apply font-outfit font-bold tracking-tight text-slate-900;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-[1200px] mx-auto px-8;
+  }
+  .section {
+    @apply py-24;
+  }
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-slate-200 shadow-sm;
+  }
+  .btn-primary {
+    @apply bg-gradient-to-br from-primary to-secondary text-white px-8 py-3 rounded-full font-semibold shadow-[0_4px_15px_rgba(59,130,246,0.3)] hover:shadow-[0_8px_25px_rgba(59,130,246,0.5)] hover:-translate-y-0.5 transition-all duration-300;
+  }
+  .btn-secondary {
+    @apply bg-white text-slate-900 px-8 py-3 rounded-full font-semibold border border-slate-200 hover:bg-slate-50 hover:border-primary transition-all duration-300 shadow-sm;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-br from-slate-900 via-slate-800 to-primary bg-clip-text text-transparent;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
